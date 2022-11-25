@@ -54,3 +54,28 @@
     cursor: pointer;
     background-color: aqua;
 }
+
+.todo-list {
+    display: grid;
+    grid-template-rows: 80px 1fr;
+}
+
+.create-task {
+    grid-area: 1 / 1 / 2 / 4
+}
+
+.task-button {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.task-button button {
+    margin: 10px;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+}
