@@ -32,7 +32,7 @@
 
 .task-title {
     padding: 10px 20px;
-    
+    font-weight: 500;
 }
 
 .date {
@@ -47,4 +47,9 @@
     width: 200px;
     border-radius: 10px;
     background-color: white;
+}
+
+.date :hover {
+    cursor: pointer;
+    background-color: aqua;
 }
