@@ -79,3 +79,28 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+#add-task-form {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+}
+
+#add-task-input {
+    flex: 1;
+    height: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+.add-class-action button {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
