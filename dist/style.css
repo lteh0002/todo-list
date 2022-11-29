@@ -63,6 +63,11 @@ header h1 {
     outline-width: 0px;
 }
 
+#priority {
+    margin-right: 10px;
+    border-radius: 1rem;
+}
+
 #add-task-button {
     border-radius: 1rem;
     padding: 5px;
