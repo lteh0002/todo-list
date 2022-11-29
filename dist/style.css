@@ -1,106 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-.title {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
 
-.hori-line {
-    border-bottom: 1px solid black;
-}
-
-.side {
-    margin: 0 20px;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    min-height: 100vh;
-}
-
-.sidebar {
-    background-color: lightblue;
-}
-
-.task-title {
-    padding: 10px 20px;
-    font-weight: 500;
-}
-
-.date {
-    padding-left: 40px;
-    padding-top: 2px;
-}
-
-.date li {
-    padding: 10px;
-    margin-top: 15px;
-    border: 1px solid black;
-    width: 200px;
-    border-radius: 10px;
+header {
+    height: 80px;
+    padding: 20px 30px;
     background-color: white;
-    font-size: 20px;
-}
-
-.date :hover {
-    cursor: pointer;
-    background-color: aqua;
-}
-
-.todo-list {
-    display: grid;
-    grid-template-rows: 80px 1fr;
-}
-
-.create-task {
-    grid-area: 1 / 1 / 2 / 4
-}
-
-.task-button {
     display: flex;
-    justify-content: right;
     align-items: center;
-    height: 100%;
-    margin-right: 10px;
 }
 
-.task-button button {
-    margin: 10px;
-    height: 50px;
-    width: 100px;
-    border-radius: 10px;
-    cursor: pointer;
+header h1 {
+    width: 400px;
+}
+
+.user-input {
+    width: 100%;
+    background-color: grey;
+    border-radius: 1rem;
 }
 
 #add-task-form {
-    width: 95%;
     display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    padding: 20px;
-    align-items: center;
+    padding: 10px;
+}
+
+#add-task-form input, #add-task-form button {
+    border: none;
 }
 
 #add-task-input {
     flex: 1;
-    height: 20px;
-    margin-right: 20px;
-    padding: 10px;
+    margin-right: 10px;
+    height: 35px;
     border-radius: 1rem;
-    font-size: 1.5rem;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    outline-width: 0px;
+    font-size: 1rem;
 }
 
-.add-class-action button {
-    font-size: 0.7rem;
-    padding: 0.5rem;
+#add-task-input::placeholder {
+    color: white;
+}
+
+#add-task-date {
+    margin-right: 10px;
+    outline-width: 0px;
+}
+
+#add-task-button {
     border-radius: 1rem;
+    padding: 5px;
     cursor: pointer;
+    width: 80px;
+}
+
+#add-task-date {
+    border-radius: 1rem;
+    background-color: grey;
+    color: white;
+}
+
+.content {
+    width: 300px;
+    background-color: lightblue;
+    padding: 20px 30px;
+    min-height: 100vh;
+}
+
+.content li {
+    padding: 5px;
+    list-style: none;
+    font-size: 27px;
+}
+
+.sidebar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.task-nav {
+    margin-bottom: 10px;
+}
+
+.line {
+    border: 1px solid black;
+}
+
+.active {
+    background-color: white;
 }
