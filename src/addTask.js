@@ -10,6 +10,7 @@ const addTaskPriority = document.querySelector("#priority")
 const listContent = document.querySelector(".list")
 let taskValue = ''
 let allTask = []
+let deleteBtnNumber
 
 function inputTask() {
     addTaskBtn.addEventListener("click", (e) => {
@@ -81,14 +82,16 @@ function deleteFunction(task_delete_el) {
         let allDeleteBtn = document.querySelectorAll('.deleteBtn')
         allDeleteBtn.forEach(btn => {
             btn.addEventListener("click", (e) => {
-                let deleteBtnNumber = Array.from(allDeleteBtn).indexOf(e.target)
-                allTask.splice(deleteBtnNumber,1)
-                console.log(allTask)
+                deleteBtnNumber = Array.from(allDeleteBtn).indexOf(e.target)
+                return deleteBtnNumber
             })
         })
+
+        task_delete_el.addEventListener("click", function () {
+            allTask.splice(deleteBtnNumber, 1)
+            listContent.removeChild(this.parentNode.parentNode)
+        })
 }
-
-
 
 function editObjectProperty() {
     let allEditBtn = document.querySelectorAll('.editBtn')
