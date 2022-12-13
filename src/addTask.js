@@ -41,8 +41,55 @@ function addTask() {
 
     task_content_el.appendChild(task_input_el)
 
+    const task_action_el = document.createElement('div')
+    task_action_el.classList.add('taskaction')
+
+    const task_edit_el = document.createElement('button')
+    task_edit_el.innerText = 'Edit'
+    task_edit_el.classList.add('editBtn')
+
+    const task_delete_el = document.createElement('button')
+    task_delete_el.innerText = 'Delete'
+    task_delete_el.classList.add('deleteBtn')
+
+    task_action_el.appendChild(task_edit_el)
+    task_action_el.appendChild(task_delete_el)
+    task_content_el.appendChild(task_action_el)
+
     listContent.appendChild(task_content_el)
+
+    buttonFunction(task_edit_el,task_input_el)
+    arrayNumber()
     
+}
+
+function buttonFunction (task_edit_el, task_input_el) {
+    task_edit_el.addEventListener('click', (e) => {
+        if (task_edit_el.innerText.toLowerCase() === 'edit') {
+            task_edit_el.innerText = "Save"
+            task_input_el.readOnly = false
+            task_input_el.focus()
+        } else if (task_edit_el.innerText.toLowerCase() === 'save') {
+            arrayNumber()
+            task_edit_el.innerText = "Edit"
+            task_input_el.readOnly = "true"
+        }
+    })
+}
+
+function arrayNumber() {
+    let allEditBtn = document.querySelectorAll('.editBtn')
+    allEditBtn.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            let deleteBtnNumber = Array.from(allEditBtn).indexOf(e.target)
+            editObjectProperty(deleteBtnNumber)
+        })
+    })
+}
+
+function editObjectProperty(number) {
+    let allInput = document.querySelectorAll('.text')
+    allTask[number].task = allInput[number].value
 }
 
 function clearTaskbar () {
