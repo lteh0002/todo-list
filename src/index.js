@@ -1,3 +1,3 @@
-import { addTask } from "./addTask";
+import { inputTask } from "./addTask";
 
-addTask()
+inputTask()
