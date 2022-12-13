@@ -58,39 +58,49 @@ function addTask() {
 
     listContent.appendChild(task_content_el)
 
-    buttonFunction(task_edit_el,task_input_el)
-    arrayNumber()
+    buttonEditFunction(task_edit_el,task_input_el)
+    deleteFunction(task_delete_el)
     
 }
 
-function buttonFunction (task_edit_el, task_input_el) {
+function buttonEditFunction (task_edit_el, task_input_el) {
     task_edit_el.addEventListener('click', (e) => {
         if (task_edit_el.innerText.toLowerCase() === 'edit') {
             task_edit_el.innerText = "Save"
             task_input_el.readOnly = false
             task_input_el.focus()
         } else if (task_edit_el.innerText.toLowerCase() === 'save') {
-            arrayNumber()
+            editObjectProperty()
             task_edit_el.innerText = "Edit"
             task_input_el.readOnly = "true"
         }
     })
 }
 
-function arrayNumber() {
+function deleteFunction(task_delete_el) {
+        let allDeleteBtn = document.querySelectorAll('.deleteBtn')
+        allDeleteBtn.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let deleteBtnNumber = Array.from(allDeleteBtn).indexOf(e.target)
+                allTask.splice(deleteBtnNumber,1)
+                console.log(allTask)
+            })
+        })
+}
+
+
+
+function editObjectProperty() {
     let allEditBtn = document.querySelectorAll('.editBtn')
     allEditBtn.forEach(btn => {
         btn.addEventListener("click", (e) => {
-            let deleteBtnNumber = Array.from(allEditBtn).indexOf(e.target)
-            editObjectProperty(deleteBtnNumber)
+            let editBtnNumber = Array.from(allEditBtn).indexOf(e.target)
+            let allInput = document.querySelectorAll('.text')
+            allTask[editBtnNumber].task = allInput[editBtnNumber].value
         })
     })
 }
 
-function editObjectProperty(number) {
-    let allInput = document.querySelectorAll('.text')
-    allTask[number].task = allInput[number].value
-}
 
 function clearTaskbar () {
     form.reset();
