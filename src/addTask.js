@@ -3,6 +3,7 @@ import { allTask } from "./inputTask"
 
 const listContent = document.querySelector(".list")
 let deleteBtnNumber
+let editBtnNumber
 
 function addTask() {
     const task_el = document.createElement('div')
@@ -21,6 +22,13 @@ function addTask() {
 
     task_content_el.appendChild(task_input_el)
 
+    const task_date_el = document.createElement('input')
+    task_date_el.classList.add('taskDate')
+    task_date_el.type = 'date'
+    task_date_el.value = allTask[(allTask.length - 1)].dueDate
+    task_date_el.readOnly = true
+    task_content_el.appendChild(task_date_el)
+
     const task_action_el = document.createElement('div')
     task_action_el.classList.add('taskaction')
 
@@ -38,21 +46,24 @@ function addTask() {
 
     listContent.appendChild(task_content_el)
 
-    buttonEditFunction(task_edit_el,task_input_el)
+    buttonEditFunction(task_edit_el,task_input_el, task_date_el)
     deleteFunction(task_delete_el)
     
 }
 
-function buttonEditFunction (task_edit_el, task_input_el) {
+function buttonEditFunction (task_edit_el, task_input_el, task_date_el) {
     task_edit_el.addEventListener('click', (e) => {
         if (task_edit_el.innerText.toLowerCase() === 'edit') {
             task_edit_el.innerText = "Save"
             task_input_el.readOnly = false
+            task_date_el.readOnly = false
             task_input_el.focus()
         } else if (task_edit_el.innerText.toLowerCase() === 'save') {
-            editObjectProperty()
+            editObjectProperty(task_edit_el)
             task_edit_el.innerText = "Edit"
-            task_input_el.readOnly = "true"
+            task_input_el.readOnly = true
+            task_date_el.readOnly = true
+            console.log(allTask)
         }
     })
 }
@@ -72,13 +83,19 @@ function deleteFunction(task_delete_el) {
         })
 }
 
-function editObjectProperty() {
+function editObjectProperty(task_edit_el) {
     let allEditBtn = document.querySelectorAll('.editBtn')
     allEditBtn.forEach(btn => {
         btn.addEventListener("click", (e) => {
             let editBtnNumber = Array.from(allEditBtn).indexOf(e.target)
-            let allInput = document.querySelectorAll('.text')
-            allTask[editBtnNumber].task = allInput[editBtnNumber].value
+            return editBtnNumber
         })
+    })
+    
+    task_edit_el.addEventListener("click", function() {
+        let allTextInput = document.querySelectorAll('.text')
+        let allDateInput = document.querySelectorAll('.taskDate')
+        allTask[editBtnNumber].task = allTextInput[editBtnNumber].value
+        // allTask[editBtnNumber].dueDate = allDateInput[editBtnNumber].value
     })
 }
