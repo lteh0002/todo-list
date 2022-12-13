@@ -130,8 +130,8 @@ header h1 {
     align-items: center;
 }
 
-.task_el input {
-    margin: 12px 30px;
+.task_el .text {
+    margin: 10px 30px;
     background: none;
     border: none;
     color: white;
@@ -147,6 +147,15 @@ header h1 {
     margin-right: 10px;
     color: white;
     cursor: pointer;
+}
+
+.taskDate {
+    margin-right: 0px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: white;
+    outline-width: 0px;
 }
 
 .taskaction {
