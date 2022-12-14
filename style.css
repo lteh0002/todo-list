@@ -150,14 +150,19 @@ header h1 {
 }
 
 .taskDate {
-    margin-right: 0px;
+    margin-right: 10px;
     padding: 0;
     background: none;
     border: none;
     color: white;
     outline-width: 0px;
+    width: 100px;
 }
 
 .taskaction {
+    margin-right: 10px;
+}
+
+.selection {
     margin-right: 10px;
 }
