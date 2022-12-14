@@ -1,6 +1,6 @@
-import { add } from "date-fns"
 import { task } from "./createTask"
 export { inputTask }
+export { allTask }
 
 const form = document.querySelector("#add-task-form")
 const addTaskBtn = document.querySelector("#add-task-button")
@@ -11,8 +11,6 @@ const listContent = document.querySelector(".list")
 let taskValue = ''
 let allTask = []
 let deleteBtnNumber
-let editBtnNumber
-let priorityNumber
 
 function inputTask() {
     addTaskBtn.addEventListener("click", (e) => {
