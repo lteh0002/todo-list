@@ -17,13 +17,17 @@ let priorityNumber
 function inputTask() {
     addTaskBtn.addEventListener("click", (e) => {
         e.preventDefault()
-        taskValue = addTaskInput.value;
-        let taskDueDate = addTaskDueDate.value
-        let taskPriority = addTaskPriority.value
-        const userTask = new task(taskValue, taskDueDate, taskPriority)
-        allTask.push(userTask)
-        clearTaskbar()
-        addTask()
+        if (addTaskInput.value === '') {
+            alert('Please insert your task!')
+        } else {
+            taskValue = addTaskInput.value;
+            let taskDueDate = addTaskDueDate.value
+            let taskPriority = addTaskPriority.value
+            const userTask = new task(taskValue, taskDueDate, taskPriority)
+            allTask.push(userTask)
+            clearTaskbar()
+            addTask()
+        }
     })
 }
 
