@@ -86,7 +86,7 @@ header h1 {
 }
 
 .content {
-    width: 300px;
+    width: 400px;
     background-color: lightblue;
     padding: 20px 30px;
     min-height: 100vh;
@@ -156,7 +156,7 @@ header h1 {
     border: none;
     color: white;
     outline-width: 0px;
-    width: 100px;
+    width: 110px;
 }
 
 .taskaction {
