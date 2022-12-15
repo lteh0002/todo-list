@@ -1,8 +1,9 @@
 import { inputTask } from "./inputTask";
 import { todayClick } from "./todayTask";
 import { inboxClick } from "./inbox";
-import { allTask } from "./inputTask";
+import { weeklyClick } from "./weeklyTask";
 
 inputTask()
-todayClick()
 inboxClick()
+todayClick()
+weeklyClick()
