@@ -1,4 +1,5 @@
 export {inboxClick}
+import { addTask } from "./inputTask"
 
 const inbox = document.querySelector('.inbox')
 const todayTask = document.querySelector('.today')
@@ -8,5 +9,6 @@ function inboxClick() {
         inbox.classList.add('active')
         todayTask.classList.remove('active')
         listContent.replaceChildren()
+        addTask()
     })
 }

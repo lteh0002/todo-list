@@ -1,6 +1,7 @@
 import { task } from "./createTask"
 export { inputTask }
 export { allTask }
+export {addTask}
 
 const form = document.querySelector("#add-task-form")
 const addTaskBtn = document.querySelector("#add-task-button")
@@ -30,6 +31,8 @@ function inputTask() {
 }
 
 function addTask() {
+    listContent.replaceChildren()
+    for (let i = 0; i < allTask.length; i++) {
     const task_el = document.createElement('div')
     task_el.classList.add('task')
 
@@ -41,7 +44,7 @@ function addTask() {
     const task_input_el = document.createElement('input')
     task_input_el.classList.add('text')
     task_input_el.type = 'text'
-    task_input_el.value = allTask[(allTask.length - 1)].task
+    task_input_el.value = allTask[i].task
     task_input_el.readOnly = true
 
     task_content_el.appendChild(task_input_el)
@@ -49,7 +52,7 @@ function addTask() {
     const task_date_el = document.createElement('input')
     task_date_el.classList.add('taskDate')
     task_date_el.type = 'date'
-    task_date_el.value = allTask[(allTask.length - 1)].dueDate
+    task_date_el.value = allTask[i].dueDate
     task_date_el.readOnly = true
     task_content_el.appendChild(task_date_el)
 
@@ -70,7 +73,7 @@ function addTask() {
     priority3.value = "Low"
     priority3.text = "Low"
 
-    priorityPlaceholder.text = allTask[(allTask.length - 1)].priority
+    priorityPlaceholder.text = allTask[i].priority
     if (priorityPlaceholder.text === "High") {
         priority1.selected
     } else if (priorityPlaceholder.text === "Medium") {
@@ -84,7 +87,7 @@ function addTask() {
     task_priority_el.add(priority3, null)
 
     task_priority_el.classList.add('taskPriority')
-    task_priority_el.value = allTask[(allTask.length - 1)].priority
+    task_priority_el.value = allTask[i].priority
     task_priority_el.disabled = true
     task_content_el.appendChild(task_priority_el)
 
@@ -110,6 +113,8 @@ function addTask() {
     deleteFunction(task_delete_el)
     
 }
+    }
+    
 
 function buttonEditFunction (task_edit_el, task_input_el, task_date_el, task_priority_el, priorityPlaceholder) {
     task_edit_el.addEventListener('click', (e) => {
@@ -168,8 +173,8 @@ function editDateProperty(number) {
 }
 
 function editPriorityProperty(number) {
-   let addPriority = document.querySelector('.selection')
-   allTask[number].priority = addPriority.value
+   let addPriority = document.querySelectorAll('.selection')
+   allTask[number].priority = addPriority[number].value
 }
 
 function clearTaskbar () {
