@@ -103,6 +103,7 @@ header h1 {
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    height: 50px;
 }
 
 .task-nav {
